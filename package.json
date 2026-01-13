@@ -8,9 +8,9 @@
     "server"
   ],
   "scripts": {
-    "dev": "concurrently -n server,client -c yellow,cyan \"npm -w server run dev\" \"npm -w client run dev\"",
-    "build": "npm -w client run build && node scripts/copyClientBuild.mjs",
-    "start": "npm -w server run start"
+    "dev": "concurrently -n server,client -c yellow,cyan \"yarn workspace server dev\" \"yarn workspace client dev\"",
+    "build": "yarn workspace client build && node scripts/copyClientBuild.mjs",
+    "start": "yarn workspace server start"
   },
   "repository": {
     "type": "git",
@@ -25,5 +25,6 @@
   "homepage": "https://github.com/yourekindalame/fraudv3#readme",
   "devDependencies": {
     "concurrently": "^9.2.1"
-  }
+  },
+  "packageManager": "yarn@1.22.22"
 }

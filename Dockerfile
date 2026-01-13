@@ -2,17 +2,18 @@
 FROM node:20-alpine AS client-build
 WORKDIR /app
 
-COPY package.json package-lock.json ./
+COPY package.json yarn.lock ./
 COPY client/package.json ./client/package.json
 COPY server/package.json ./server/package.json
 
-RUN npm ci
+RUN corepack enable && corepack prepare yarn@1.22.22 --activate
+RUN yarn install --frozen-lockfile
 
 COPY client ./client
 COPY server ./server
 COPY scripts ./scripts
 
-RUN npm -w client run build
+RUN yarn workspace client build
 RUN node scripts/copyClientBuild.mjs
 
 ### Stage 2: production server
@@ -21,11 +22,12 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
-COPY package.json package-lock.json ./
+COPY package.json yarn.lock ./
 COPY client/package.json ./client/package.json
 COPY server/package.json ./server/package.json
 
-RUN npm ci --omit=dev
+RUN corepack enable && corepack prepare yarn@1.22.22 --activate
+RUN yarn install --frozen-lockfile --production=true
 
 COPY server ./server
 COPY --from=client-build /app/server/public ./server/public
@@ -33,5 +35,5 @@ COPY --from=client-build /app/server/public ./server/public
 EXPOSE 8080
 ENV PORT=8080
 
-CMD ["npm","-w","server","run","start"]
+CMD ["yarn","workspace","server","start"]
 

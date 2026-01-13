@@ -21,13 +21,13 @@ Prereqs: Node.js 20+
 Install:
 
 ```bash
-npm install
+yarn install
 ```
 
 Run dev (server on `:8080`, client on `:5173` with websocket proxy):
 
 ```bash
-npm run dev
+yarn dev
 ```
 
 Health check:
@@ -41,13 +41,13 @@ curl -s http://localhost:8080/health
 Build the client and copy it into `server/public`:
 
 ```bash
-npm run build
+yarn build
 ```
 
 Run the server (serves `server/public` + Socket.IO):
 
 ```bash
-npm run start
+yarn start
 ```
 
 Open: `http://localhost:8080`
@@ -88,6 +88,10 @@ fly secrets set KEY=value
 - Socket.IO connects to the same origin (no hard-coded URL)
 - Fly config uses `internal_port = 8080`
 - Server listens on `process.env.PORT || 8080`
+
+### Windows note (workspace installs)
+
+This repo uses **Yarn workspaces**. If you’re on Windows and your machine restricts directory symlinks, Yarn typically uses Windows junctions and avoids the `npm` workspace link errors.
 
 ### Scaling note
 
