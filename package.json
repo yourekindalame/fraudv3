@@ -1,0 +1,29 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The Fraud - multiplayer deduction game (single-app deploy)",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,client -c yellow,cyan \"npm -w server run dev\" \"npm -w client run dev\"",
+    "build": "npm -w client run build && node scripts/copyClientBuild.mjs",
+    "start": "npm -w server run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourekindalame/fraudv3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yourekindalame/fraudv3/issues"
+  },
+  "homepage": "https://github.com/yourekindalame/fraudv3#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

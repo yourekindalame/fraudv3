@@ -1,0 +1,19 @@
+# dependencies
+node_modules/
+
+# builds
+client/dist/
+server/public/*
+!server/public/.gitkeep
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
+

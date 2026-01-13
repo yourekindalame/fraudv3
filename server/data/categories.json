@@ -1,0 +1,74 @@
+{
+  "categories": [
+    {
+      "id": "movies",
+      "name": "Movies",
+      "icon": "🎬",
+      "clues16": [
+        "Director",
+        "Sequel",
+        "Trailer",
+        "Popcorn",
+        "Oscars",
+        "Villain",
+        "Hero",
+        "Plot twist",
+        "Soundtrack",
+        "Cinema",
+        "Casting",
+        "Scene",
+        "Dialogue",
+        "Premiere",
+        "Credits",
+        "Box office"
+      ]
+    },
+    {
+      "id": "kitchen",
+      "name": "Kitchen",
+      "icon": "🍳",
+      "clues16": [
+        "Spatula",
+        "Knife",
+        "Cutting board",
+        "Oven",
+        "Stove",
+        "Salt",
+        "Pepper",
+        "Recipe",
+        "Pan",
+        "Pot",
+        "Whisk",
+        "Boil",
+        "Bake",
+        "Fry",
+        "Dishwasher",
+        "Apron"
+      ]
+    },
+    {
+      "id": "vacation",
+      "name": "Vacation",
+      "icon": "🏝️",
+      "clues16": [
+        "Hotel",
+        "Passport",
+        "Beach",
+        "Suitcase",
+        "Airport",
+        "Souvenir",
+        "Map",
+        "Sunscreen",
+        "Tour",
+        "Reservation",
+        "Jet lag",
+        "Road trip",
+        "Museum",
+        "Postcard",
+        "Relax",
+        "Checklist"
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,694 @@
+:root {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.4;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.92);
+  background: #0b0b0c;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: radial-gradient(1200px 700px at 50% -20%, rgba(255, 255, 255, 0.06), transparent 70%),
+    #0b0b0c;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.muted {
+  color: rgba(255, 255, 255, 0.62);
+}
+.small {
+  font-size: 12px;
+}
+
+.appRoot {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.topBar {
+  height: 64px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 10, 11, 0.82);
+  backdrop-filter: blur(14px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.topBarLeft,
+.topBarCenter,
+.topBarRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+.logoMark {
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.12);
+}
+.logoText {
+  font-size: 16px;
+}
+
+.welcome {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.welcomeLabel {
+  color: rgba(255, 255, 255, 0.6);
+}
+.welcomeName {
+  font-weight: 700;
+}
+
+.avatarWrap {
+  display: flex;
+  align-items: center;
+}
+.avatarBtn {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.avatarImg {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  object-fit: cover;
+}
+.avatarPlaceholder {
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 800;
+}
+
+.mainContent {
+  flex: 1;
+  padding: 22px;
+}
+
+.btn {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.08s ease, border-color 0.15s ease, background 0.15s ease;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+}
+.btn:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.btnSmall {
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+.btnHuge {
+  padding: 16px 20px;
+  border-radius: 16px;
+  font-size: 18px;
+}
+.btnPrimary {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.07));
+  border-color: rgba(255, 255, 255, 0.18);
+}
+.btnSecondary {
+  background: rgba(255, 255, 255, 0.08);
+}
+.btnGhost {
+  background: transparent;
+}
+
+.input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.92);
+  border-radius: 12px;
+  padding: 10px 12px;
+  outline: none;
+}
+.input:focus {
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.label {
+  display: grid;
+  gap: 8px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+}
+.stack {
+  display: grid;
+  gap: 12px;
+}
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.rowBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.62);
+  display: grid;
+  place-items: center;
+  z-index: 50;
+  padding: 22px;
+}
+.modalCard {
+  width: min(560px, 100%);
+  background: rgba(18, 18, 20, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65);
+}
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 14px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.modalTitle {
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+.modalBody {
+  padding: 14px;
+}
+.rulesText {
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.toggleRow {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+}
+.toggleText {
+  display: grid;
+  gap: 2px;
+}
+.toggleTitle {
+  font-weight: 800;
+}
+
+.home {
+  min-height: calc(100vh - 64px);
+  display: grid;
+  place-items: center;
+  padding: 24px 12px;
+}
+.homeCard {
+  width: min(860px, 100%);
+  padding: 34px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.035);
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.55);
+}
+.homeTitle {
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: -0.4px;
+}
+.homeSubtitle {
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.68);
+}
+.homeActions {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.homeFoot {
+  margin-top: 18px;
+  font-size: 12px;
+}
+
+.page {
+  width: min(980px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 14px;
+}
+.pageHeader {
+  display: grid;
+  gap: 4px;
+}
+.pageTitle {
+  font-size: 26px;
+  font-weight: 900;
+}
+
+.panel {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.035);
+  border-radius: 16px;
+  padding: 14px;
+}
+.panelTitle {
+  font-weight: 900;
+}
+
+.lobbyList {
+  display: grid;
+  gap: 10px;
+}
+.lobbyRow {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.92);
+}
+.lobbyRow:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+.lobbyRowName {
+  font-weight: 900;
+}
+
+.triLayout {
+  height: calc(100vh - 64px);
+  display: grid;
+  grid-template-columns: 320px 1fr 320px;
+  gap: 14px;
+}
+.sidePanel {
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.sideHeader {
+  font-weight: 900;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 10px;
+}
+.centerPanel {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.panelTitleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+}
+.bigTitle {
+  font-size: 24px;
+  font-weight: 950;
+  letter-spacing: -0.2px;
+}
+
+.chatList {
+  flex: 1;
+  overflow: auto;
+  display: grid;
+  gap: 10px;
+  padding-right: 6px;
+}
+.chatMsg {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 10px;
+  align-items: start;
+}
+.chatAvatar img,
+.leaderAvatar img {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.avatarFallback {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.12);
+}
+.chatMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12px;
+}
+.chatName {
+  font-weight: 900;
+}
+.chatText {
+  color: rgba(255, 255, 255, 0.9);
+}
+.chatInputRow {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.leaderList {
+  display: grid;
+  gap: 10px;
+}
+.leaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.leaderLeft {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.leaderName {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 900;
+}
+.leaderPts {
+  font-weight: 900;
+}
+.crown {
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35));
+}
+
+.panelGrid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.codeRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.codeValue {
+  font-size: 18px;
+  font-weight: 950;
+  letter-spacing: 2px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.settingsGrid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 12px;
+  margin-top: 12px;
+}
+.settingsBlock {
+  display: grid;
+  gap: 10px;
+}
+.settingsLabel {
+  font-weight: 900;
+}
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.catCard {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+  text-align: left;
+}
+.catCard:disabled {
+  cursor: not-allowed;
+}
+.catIcon {
+  font-size: 22px;
+}
+.catName {
+  font-weight: 900;
+}
+.catOn {
+  border-color: rgba(255, 255, 255, 0.26);
+  background: rgba(255, 255, 255, 0.06);
+}
+.catOff {
+  opacity: 0.55;
+}
+
+.grid16 {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.gridCell {
+  height: 72px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.92);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  padding: 10px;
+}
+.gridCell:disabled {
+  cursor: default;
+  opacity: 0.85;
+}
+.gridSecret {
+  outline: 2px solid rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.08);
+}
+.gridCellText {
+  font-weight: 900;
+  text-align: center;
+  font-size: 13px;
+}
+
+.clueList {
+  margin-top: 12px;
+  display: grid;
+  gap: 8px;
+}
+.clueRow {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 10px;
+  align-items: center;
+}
+.clueName {
+  font-weight: 900;
+}
+
+.voteGrid {
+  margin-top: 10px;
+  display: grid;
+  gap: 8px;
+}
+.voteRow {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.92);
+}
+.voteRowOn {
+  border-color: rgba(255, 255, 255, 0.26);
+  background: rgba(255, 255, 255, 0.06);
+}
+.voteName {
+  font-weight: 950;
+}
+.voteAvatars {
+  display: flex;
+  gap: 6px;
+}
+.voteAvatar {
+  width: 18px;
+  height: 18px;
+  border-radius: 7px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  display: grid;
+  place-items: center;
+}
+.voteAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.voteDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.holdBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.holdBar {
+  width: 60px;
+  height: 8px;
+  border-radius: 99px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.holdFill {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: left;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.resultBanner {
+  margin-top: 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px;
+}
+.resultTitle {
+  font-weight: 950;
+  margin-bottom: 4px;
+}
+
+.roleBlock {
+  display: grid;
+  gap: 8px;
+}
+.roleTitle {
+  font-size: 18px;
+  font-weight: 950;
+}
+
+.errorBanner {
+  margin: 12px 22px 0;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 100, 100, 0.35);
+  background: rgba(255, 80, 80, 0.08);
+  padding: 10px 12px;
+  display: grid;
+  gap: 2px;
+  cursor: pointer;
+}
+.errorCode {
+  font-weight: 950;
+}
+.errorHint {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 1100px) {
+  .triLayout {
+    grid-template-columns: 280px 1fr 280px;
+  }
+}
+
+@media (max-width: 980px) {
+  .triLayout {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .sidePanel {
+    height: 420px;
+  }
+}

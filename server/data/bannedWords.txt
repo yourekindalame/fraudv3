@@ -1,0 +1,10 @@
+# One word/phrase per line (case-insensitive substring match)
+fuck
+shit
+bitch
+nazi
+hitler
+rape
+kkk
+slur
+
